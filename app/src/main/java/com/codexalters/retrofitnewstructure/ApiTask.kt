@@ -29,21 +29,33 @@ object ApiTask {
         webService = retrofit.create(WebServices::class.java)
     }
 
-    fun getCategoryList(token: String, dataHandler: RetrofitUtil.DataHandler, activity: Activity) {
+    fun getCategoryList(token: String,
+                        dataHandler: RetrofitUtil.DataHandler,
+                        activity: Activity) {
 
         if (ConnectionUtil.isDataConnectionAvailable(activity)) {
-            RetrofitUtil.handleApiResponse(webService.getCategoryList(token), dataHandler)
+            RetrofitUtil.handleApiResponse(
+                    webService.getCategoryList(
+                            token),
+                    dataHandler)
         } else {
             dataHandler.noInternetConnection()
         }
     }
 
-    fun getIndexDetailByIndexId(token: String, indexId: String, dataHandler: RetrofitUtil.DataHandler, activity: Activity) {
+    fun getIndexDetailByIndexId(token: String,
+                                indexId: String,
+                                dataHandler: RetrofitUtil.DataHandler,
+                                activity: Activity) {
+
         if (ConnectionUtil.isDataConnectionAvailable(activity)) {
-            RetrofitUtil.handleApiResponse(webService.getIndexDetailByIndexId(token, indexId), dataHandler)
+            RetrofitUtil.handleApiResponse(
+                    webService.getIndexDetailByIndexId(
+                            token,
+                            indexId),
+                    dataHandler)
         } else {
             dataHandler.noInternetConnection()
-
         }
 
     }

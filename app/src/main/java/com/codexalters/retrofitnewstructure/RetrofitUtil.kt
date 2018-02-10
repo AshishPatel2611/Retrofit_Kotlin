@@ -1,6 +1,5 @@
 package com.codexalters.retrofitnewstructure
 
-import com.google.gson.Gson
 import com.google.gson.JsonElement
 import com.google.gson.annotations.SerializedName
 import retrofit2.Call
@@ -13,7 +12,7 @@ import retrofit2.Response
 object RetrofitUtil {
 
     interface DataHandler {
-        fun onSuccess(data: String)
+        fun onSuccess(data: JsonElement)
         fun onFailure(data: String)
         fun loginRequired()
         fun noInternetConnection()
@@ -34,7 +33,7 @@ object RetrofitUtil {
                 if (response!!.body() != null) {
                     if (response.body()!!.status == 200) {
 
-                        dataHandler.onSuccess(Gson().toJson(response.body()!!.data))
+                        dataHandler.onSuccess(response.body()!!.data!!)
 
                     } else if (response.body()!!.status == 401) {
 
@@ -53,7 +52,6 @@ object RetrofitUtil {
                 }
             }
         })
-
     }
 
     class APIresponse {
