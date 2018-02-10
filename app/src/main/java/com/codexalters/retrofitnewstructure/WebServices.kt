@@ -6,7 +6,7 @@ import retrofit2.http.*
 interface WebServices {
 
     companion object {
-        //const val BASE_URL = "http://codexalters-techlabs.com/mycontractor/ws/"
+        //const val BASE_URL = "http://url/ws/"
         const val BASE_URL = "http://codexalters.site/mycontractor/ws/"
         const val CATEGORY_LIST = "user/user/getCategorylist"
         const val INDEX_DETAIL = "user/user/IndexDetails"
